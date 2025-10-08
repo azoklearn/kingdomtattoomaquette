@@ -1,0 +1,614 @@
+/* Variables CSS pour le thème Kingdom Tattoo */
+:root {
+    --gold: #C9A227;
+    --gold-light: #D4AF37;
+    --gold-dark: #B8860B;
+    --black: #000000;
+    --gray-900: #111827;
+    --gray-800: #1f2937;
+    --gray-700: #374151;
+    --gray-600: #4b5563;
+    --gray-500: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-300: #d1d5db;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+}
+
+/* Polices personnalisées */
+.font-cinzel {
+    font-family: 'Cinzel', serif;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Couleurs personnalisées */
+.text-gold {
+    color: var(--gold);
+}
+
+.bg-gold {
+    background-color: var(--gold);
+}
+
+.border-gold {
+    border-color: var(--gold);
+}
+
+/* Animations personnalisées */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Classes d'animation */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.animate-fade-in-delay-3 {
+    animation: fadeIn 1s ease-out 0.9s both;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Effets de particules dorées */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    top: 40%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(3) {
+    top: 60%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(4) {
+    top: 80%;
+    right: 25%;
+    animation-delay: 3s;
+}
+
+.particle:nth-child(5) {
+    top: 30%;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+/* Boutons personnalisés */
+.btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--black);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(201, 162, 39, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-secondary:hover::before {
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(201, 162, 39, 0.3);
+}
+
+/* Cartes d'artistes */
+.artist-card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.artist-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(201, 162, 39, 0.2);
+}
+
+.artist-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.artist-card:hover::before {
+    opacity: 0.1;
+}
+
+/* Filtres de galerie */
+.filter-btn {
+    background: transparent;
+    color: var(--gray-400);
+    border: 2px solid var(--gray-600);
+    padding: 12px 24px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
+}
+
+/* Éléments de galerie */
+.gallery-item {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 30px rgba(201, 162, 39, 0.2);
+}
+
+/* Champs de formulaire */
+.form-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gray-600);
+    color: var(--gray-300);
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+}
+
+.form-input::placeholder {
+    color: var(--gray-500);
+}
+
+/* Liens sociaux */
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(201, 162, 39, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--gold);
+    color: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(201, 162, 39, 0.3);
+}
+
+/* Navigation */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Menu Mobile */
+#mobile-menu {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-nav-link {
+    position: relative;
+    display: block;
+}
+
+.mobile-nav-link::before {
+    content: '▸';
+    position: absolute;
+    left: -20px;
+    color: var(--gold);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover::before {
+    left: -10px;
+    opacity: 1;
+}
+
+/* Bouton Hamburger */
+.hamburger-menu {
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.1);
+}
+
+.hamburger-menu.active {
+    transform: rotate(90deg);
+}
+
+.hamburger-line {
+    transition: all 0.3s ease;
+}
+
+/* Effets de survol pour les images */
+.hover-gold {
+    transition: all 0.3s ease;
+}
+
+.hover-gold:hover {
+    filter: sepia(1) saturate(2) hue-rotate(45deg) brightness(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .text-6xl {
+        font-size: 3rem;
+    }
+    
+    .text-8xl {
+        font-size: 4rem;
+    }
+    
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+    
+    .particle {
+        display: none;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .artist-card {
+        margin-bottom: 2rem;
+    }
+    
+    .gallery-item {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .text-6xl {
+        font-size: 2.5rem;
+    }
+    
+    .text-8xl {
+        font-size: 3rem;
+    }
+    
+    .text-5xl {
+        font-size: 2rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Effets de scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Effets de brillance */
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Effets de gradient animé */
+.gradient-animation {
+    background: linear-gradient(-45deg, var(--gold), var(--gold-light), var(--gold-dark), var(--gold));
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Effets de texte doré */
+.text-gold-gradient {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* Effets de bordure animée */
+.border-animated {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, var(--black), var(--black)) padding-box,
+                linear-gradient(45deg, var(--gold), var(--gold-light), var(--gold)) border-box;
+    animation: borderGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+    0% {
+        border-color: var(--gold);
+        box-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+    }
+    100% {
+        border-color: var(--gold-light);
+        box-shadow: 0 0 20px rgba(201, 162, 39, 0.6);
+    }
+}
+
+/* Effets de parallaxe */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Effets de glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-gold {
+    background: rgba(201, 162, 39, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+/* Effets de loading */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Effets de hover pour les cartes */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Effets de texte animé */
+.text-animate {
+    background: linear-gradient(45deg, var(--gold), var(--gold-light), var(--gold-dark), var(--gold));
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 3s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
